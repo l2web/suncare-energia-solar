@@ -1,0 +1,68 @@
+
+import React from 'react';
+import HeroSection from '@/components/HeroSection';
+import ContactForm from '@/components/ContactForm';
+
+const Index = () => {
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <HeroSection />
+      
+      {/* Contact Form Section */}
+      <ContactForm />
+      
+      {/* Footer */}
+      <footer className="bg-suncare-blue-900 text-white py-12 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="mb-8">
+            <div className="flex flex-col items-center">
+              <img 
+                src="/03.png" 
+                alt="Logo" 
+                className="w-36 h-36 md:w-40 md:h-40 object-contain"
+              />
+              <p className="text-suncare-blue-200 -mt-2 md:-mt-3">
+                Energia Solar em Dourados - MS
+              </p>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <h4 className="font-semibold mb-3 text-suncare-blue-300">Contato</h4>
+              <p className="text-sm text-suncare-blue-100">
+                📱 (67) 99999-9999<br/>
+                📧 contato@suncare.com.br
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-3 text-suncare-blue-300">Localização</h4>
+              <p className="text-sm text-suncare-blue-100">
+                📍 Dourados - MS<br/>
+                Atendemos toda a região
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-3 text-suncare-blue-300">Garantia</h4>
+              <p className="text-sm text-suncare-blue-100">
+                ✅ 25 anos nos painéis<br/>
+                ✅ 12 anos no inversor
+              </p>
+            </div>
+          </div>
+          
+          <div className="border-t border-suncare-blue-700 pt-6">
+            <p className="text-suncare-blue-200 text-sm">
+              © 2024 SunCare. Todos os direitos reservados.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default Index;
