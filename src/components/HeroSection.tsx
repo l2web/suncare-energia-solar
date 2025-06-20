@@ -42,14 +42,14 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Video Section with modern card - YouTube Shorts */}
+          {/* Video Section with modern card - YouTube Video */}
           <div className="mb-3 md:mb-6 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            <div className="relative w-full max-w-xs md:max-w-md mx-auto group">
+            <div className="relative w-full max-w-sm md:max-w-2xl lg:max-w-3xl mx-auto group">
               <div className="absolute -inset-1 bg-gradient-to-r from-suncare-blue-400 to-suncare-blue-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-500" />
-              <div className="relative aspect-[9/16] rounded-xl overflow-hidden shadow-2xl bg-black/20 backdrop-blur-sm border border-white/10">
+              <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl bg-black/20 backdrop-blur-sm border border-white/10">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/MmjwSZUoiUc"
+                  src="https://www.youtube.com/embed/pAGhMkIUb0U"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
