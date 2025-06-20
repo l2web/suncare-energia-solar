@@ -40,8 +40,9 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-3 text-suncare-blue-300">Localização</h4>
               <p className="text-sm text-suncare-blue-100">
-                📍 Dourados - MS<br/>
-                Atendemos toda a região
+                📍 Rua Cuiabá, 2350, sala 04<br/>
+                Jardim São Pedro, Dourados - MS<br/>
+                CEP: 79802-031
               </p>
             </div>
             
