@@ -81,9 +81,9 @@ Custo mensal de energia: R$ ${formData.custoEnergia}`;
   };
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = '5567999999999'; // Substitua pelo número real
+    const phoneNumber = '5567998031541';
     const message = generateWhatsAppMessage();
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank');
   };
 

@@ -32,7 +32,7 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-3 text-suncare-blue-300">Contato</h4>
               <p className="text-sm text-suncare-blue-100">
-                📱 (67) 99999-9999<br/>
+                📱 <a href="https://wa.me/5567998031541" target="_blank" rel="noopener noreferrer" className="text-suncare-blue-100 hover:text-white transition-colors">(67) 99803-1541</a><br/>
                 📧 contato@suncare.com.br
               </p>
             </div>
