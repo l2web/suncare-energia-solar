@@ -49,7 +49,7 @@ const HeroSection = () => {
               <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl bg-black/20 backdrop-blur-sm border border-white/10">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/pAGhMkIUb0U"
+                  src="https://www.youtube.com/embed/pAGhMkIUb0U?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&cc_load_policy=0&loop=1&playlist=pAGhMkIUb0U"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
