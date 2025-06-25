@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { MessageCircle, Send, Zap, Award, Clock, DollarSign, User, Phone, MapPin, Shield, CheckCircle, AlertCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { trackWhatsAppClick } from '@/lib/meta-tracking';
 
 interface FormData {
   nome: string;
@@ -72,15 +73,30 @@ const ContactForm = () => {
   };
 
   const generateWhatsAppMessage = () => {
-    const message = `Olá, quero saber mais sobre energia solar!
-Nome do cliente: ${formData.nome}
+    const message = `Nome do cliente: ${formData.nome}
 Cidade: ${formData.cidade}
-Custo mensal de energia: R$ ${formData.custoEnergia}`;
+Custo mensal de energia: R$ ${formData.custoEnergia}
+Olá, quero saber mais sobre energia solar!`;
     
     return encodeURIComponent(message);
   };
 
-  const handleWhatsAppClick = () => {
+  const handleWhatsAppClick = async () => {
+    try {
+      // Rastrear evento Meta InitiateCheckout
+      await trackWhatsAppClick({
+        nome: formData.nome,
+        cidade: formData.cidade,
+        custoEnergia: formData.custoEnergia,
+        telefone: formData.telefone
+      });
+      
+      console.log('✅ Meta InitiateCheckout event tracked successfully');
+    } catch (error) {
+      console.error('❌ Error tracking Meta event:', error);
+    }
+    
+    // Abrir WhatsApp
     const phoneNumber = '5567998031541';
     const message = generateWhatsAppMessage();
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
@@ -286,44 +302,8 @@ Data: ${new Date().toLocaleString('pt-BR')}`,
                 </div>
               </div>
 
-              {/* Botões com estados translúcidos */}
+              {/* Botão WhatsApp */}
               <div className="space-y-3 md:space-y-4 pt-4 md:pt-6">
-                <Button
-                  type="submit"
-                  className={`w-full h-12 md:h-14 text-base md:text-lg font-semibold rounded-xl shadow-lg transition-all duration-500 transform ${
-                    submitStatus === 'success'
-                      ? 'bg-gradient-to-r from-green-600 to-green-700 text-white opacity-100'
-                      : submitStatus === 'error'
-                      ? 'bg-gradient-to-r from-red-600 to-red-700 text-white opacity-100'
-                      : isFormComplete && !isSubmitting
-                      ? 'bg-gradient-to-r from-suncare-blue-600 to-suncare-blue-700 hover:from-suncare-blue-700 hover:to-suncare-blue-800 text-white opacity-100 hover:shadow-xl hover:scale-[1.02] cursor-pointer'
-                      : 'bg-gradient-to-r from-suncare-blue-600 to-suncare-blue-700 text-white opacity-30 cursor-not-allowed hover:scale-100 hover:shadow-lg'
-                  }`}
-                  disabled={!isFormComplete || isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-4 h-4 md:w-5 md:h-5 mr-2 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      Enviando...
-                    </>
-                  ) : submitStatus === 'success' ? (
-                    <>
-                      <CheckCircle className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-                      Enviado com Sucesso!
-                    </>
-                  ) : submitStatus === 'error' ? (
-                    <>
-                      <AlertCircle className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-                      Erro - Tente Novamente
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-                      Solicitar Orçamento Gratuito
-                    </>
-                  )}
-                </Button>
-                
                 <Button
                   type="button"
                   onClick={() => handleButtonClick('whatsapp')}
