@@ -96,11 +96,11 @@ Olá, quero saber mais sobre energia solar!`;
       console.error('❌ Error tracking Meta event:', error);
     }
     
-    // Abrir WhatsApp
+    // Abrir WhatsApp - usando location.href para compatibilidade com navegadores internos
     const phoneNumber = '5567998031541';
     const message = generateWhatsAppMessage();
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    window.open(whatsappUrl, '_blank');
+    window.location.href = whatsappUrl;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
